@@ -102,13 +102,11 @@ g44Game.GameState = {
        this.createBarrel();
        this.barrelCreate = this.game.time.events.loop(Phaser.Timer.SECOND * this.levelData.barrelRelease, this.createBarrel, this)
 
-       // this.collectBeersLabel = this.add.text(6, 30, "0")
+        this.score = 0;
+        this.scoreText = this.game.add.text(500, 50, 'score:', { fontSize: '32px', fill: '#000' });
    },
 
    update: function () {
-
-       this.score = 0;
-       this.scoreText = this.game.add.text(500, 50, 'score:', { fontSize: '32px', fill: '#000' });
 
        this.game.physics.arcade.collide(this.player, this.grounds);
        this.game.physics.arcade.collide(this.player, this.platforms);
@@ -153,15 +151,16 @@ g44Game.GameState = {
    function collectBeers (player, beers){
    beers.kill();
 
-  this.score += 10;
-  this.scoreText.text += this.score;
+    this.score += 10;
+    this.scoreText.text = "score:" + this.score;
+    console.log(this.score)
 
    }
       function hitBarrel(player, barrels) {
     if(barrels.body.touching.up) {
       barrels.kill();
-      // this.score += 10;
-      // this.scoreText.text += score;
+        this.score += 10;
+        this.scoreText.text = "score:" + this.score;
       player.body.velocity.y = -this.BOUNCING_SPEED;
     }
     else {
@@ -171,9 +170,8 @@ g44Game.GameState = {
    },
    killsPlayer: function() {
        var death = $("<div class='text-centered'>'OH NOES! <br> CRAIG DIED!'</div>");
-       $('body').append(death);
        Materialize.toast(death, 5000)
-       this.game.state.start('Game');
+       this.game.state.start('craigDeath');
    },
    wins: function() {
         Materialize.toast("Craig Did It! Now it's Lisa's turn...", 5000);

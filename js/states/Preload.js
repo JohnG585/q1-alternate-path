@@ -17,6 +17,9 @@ g44Game.PreloadState = {
         this.load.audio('coin', ['assets/images/coin.mp3', 'assets/images/coin.ogg']);
         this.load.image('titleScreen', 'assets/images/walnut_title.png');
         this.load.image('button', 'assets/images/orange.png');
+        this.load.image('craigOT', 'assets/images/craig_death.png');
+        this.load.image('lisaOT', 'assets/images/lisa_death.png');
+        this.load.audio('castlevania', ['assets/images/castelvania.mp3', 'assets/images/castlevania.ogg']);
 
        this.load.spritesheet('player2', 'assets/images/lisa_walk.png', 48, 52, 4, 1, 1);
        this.load.spritesheet('fire', 'assets/images/fire_spritesheet.png', 20, 21, 5, 1, 1);
