@@ -18,7 +18,7 @@ g44Game.Level2State = {
 
    preload: function () {
 
-       this.load.spritesheet('player', 'assets/images/craig_walk.png', 52, 57, 5, 1, 1);
+       this.load.spritesheet('player2', 'assets/images/lisa_walk.png', 48, 52, 4, 1, 1);
        this.load.image('barrel2', 'assets/images/barrel.png');
        this.load.image('goal2', 'assets/images/dk.png');
        //load json
@@ -90,13 +90,13 @@ g44Game.Level2State = {
        this.game.physics.arcade.enable(this.goal2);
        this.goal2.body.allowGravity = false;
 
-       this.player = this.add.sprite(this.levelData.playerStart.x, this.levelData.playerStart.y, 'player', 2);
-       this.player.anchor.setTo(0.5);
-       this.player.animations.add('walking', [0, 1,], 6, true);
-       this.game.physics.arcade.enable(this.player);
-       this.player.body.collideWorldBounds = true;
+       this.player2 = this.add.sprite(this.levelData.playerStart.x, this.levelData.playerStart.y, 'player2', 2);
+       this.player2.anchor.setTo(0.5);
+       this.player2.animations.add('walking', [1, 2,], 6, true);
+       this.game.physics.arcade.enable(this.player2);
+       this.player2.body.collideWorldBounds = true;
 
-       this.game.camera.follow(this.player);
+       this.game.camera.follow(this.player2);
 
        this.barrels2 = this.add.group();
        this.barrels2.enableBody = true;
@@ -111,35 +111,35 @@ g44Game.Level2State = {
        this.score = 0;
        this.scoreText = this.game.add.text(500, 50, 'score:', { fontSize: '32px', fill: '#000' });
 
-       this.game.physics.arcade.collide(this.player, this.grounds);
-       this.game.physics.arcade.collide(this.player, this.platforms2);
+       this.game.physics.arcade.collide(this.player2, this.grounds);
+       this.game.physics.arcade.collide(this.player2, this.platforms2);
 
        this.game.physics.arcade.collide(this.barrels2, this.grounds);
        this.game.physics.arcade.collide(this.barrels2, this.platforms2);
-       this.game.physics.arcade.collide(this.player, this.barrels2, hitBarrel, null, this);
+       this.game.physics.arcade.collide(this.player2, this.barrels2, hitBarrel, null, this);
 
-       this.game.physics.arcade.overlap(this.player, this.fires2, this.killsPlayer, null, this);
-       this.game.physics.arcade.overlap(this.player, this.goal2, this.wins, null, this);
-       this.game.physics.arcade.overlap(this.player, this.beers, collectBeers, null, this);
+       this.game.physics.arcade.overlap(this.player2, this.fires2, this.killsPlayer, null, this);
+       this.game.physics.arcade.overlap(this.player2, this.goal2, this.wins, null, this);
+       this.game.physics.arcade.overlap(this.player2, this.beers, collectBeers, null, this);
 
-       this.player.body.velocity.x = 0;
+       this.player2.body.velocity.x = 0;
 
        if(this.cursors.left.isDown) {
-           this.player.body.velocity.x = -this.RUN2_SPEED;
-           this.player.play('walking');
-           this.player.scale.setTo(-1,1);
+           this.player2.body.velocity.x = -this.RUN2_SPEED;
+           this.player2.play('walking');
+           this.player2.scale.setTo(-1,1);
        }
        else if(this.cursors.right.isDown) {
-           this.player.body.velocity.x = this.RUN2_SPEED;
-           this.player.play('walking');
-           this.player.scale.setTo(1,1);
+           this.player2.body.velocity.x = this.RUN2_SPEED;
+           this.player2.play('walking');
+           this.player2.scale.setTo(1,1);
        }
        else {
-           this.player.animations.stop();
-           this.player.frame = 2;
+           this.player2.animations.stop();
+           this.player2.frame = 0;
        }
-       if (this.cursors.up.isDown && this.player.body.touching.down) {
-           this.player.body.velocity.y = -this.JUMPING_SPEED;
+       if (this.cursors.up.isDown && this.player2.body.touching.down) {
+           this.player2.body.velocity.y = -this.JUMPING_SPEED;
        }
        var barrel2;
        this.barrels2.forEach(function(element) {
@@ -151,19 +151,19 @@ g44Game.Level2State = {
 
        },this)
 
-   function collectBeers (player, beers){
+   function collectBeers (player2, beers){
    beers.kill();
 
   this.score += 10;
   this.scoreText.text += this.score;
 
    }
-      function hitBarrel(player, barrels2) {
+      function hitBarrel(player2, barrels2) {
     if(barrels2.body.touching.up) {
       barrels2.kill();
       // this.score += 10;
       // this.scoreText.text += score;
-      player.body.velocity.y = -this.BOUNCING_SPEED;
+      player2.body.velocity.y = -this.BOUNCING_SPEED;
     }
     else {
      this.killsPlayer();
@@ -178,7 +178,7 @@ g44Game.Level2State = {
    },
    wins: function() {
         Materialize.toast("LISA IS TEH BEST!", 5000);
-        this.game.state.start('');
+        this.game.state.start('MainMenu');
    },
    createBarrel2: function() {
        var barrel2 = this.barrels2.getFirstExists(false);

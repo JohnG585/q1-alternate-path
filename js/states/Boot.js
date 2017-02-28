@@ -13,4 +13,4 @@ g44Game.BootState = {
     create: function() {
         this.state.start('Preload');
     }
-};
+}

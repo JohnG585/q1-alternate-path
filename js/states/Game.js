@@ -14,9 +14,6 @@ g44Game.GameState = {
        this.JUMPING_SPEED = 560;
        this.BOUNCING_SPEED = 150;
 
-       this.numLevels = 3;
-       this.currentLevel = currentLevel ? currentLevel : 1;
-
    },
 
    preload: function () {
