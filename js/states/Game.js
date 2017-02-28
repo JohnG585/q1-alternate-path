@@ -2,10 +2,9 @@ var g44Game = g44Game || {};
 
 g44Game.GameState = {
 
-   init: function() {
+   init: function(currentLevel) {
 
        this.game.physics.arcade.gravity.y = 1000;
-
 
        this.cursors = this.game.input.keyboard.createCursorKeys();
 
@@ -15,12 +14,12 @@ g44Game.GameState = {
        this.JUMPING_SPEED = 560;
        this.BOUNCING_SPEED = 150;
 
+       this.numLevels = 3;
+       this.currentLevel = currentLevel ? currentLevel : 1;
+
    },
 
    preload: function () {
-
-       this.load.spritesheet('fire', 'assets/images/fire_spritesheet.png', 20, 21, 5, 1, 1);
-       this.load.spritesheet('player', 'assets/images/craig_walk.png', 52, 57, 5, 1, 1);
 
        //load json
        this.load.text('level', 'assets/data/level.json');
@@ -180,8 +179,8 @@ g44Game.GameState = {
        this.game.state.start('Game');
    },
    wins: function() {
-       this.game.state.start('Game');
-        alert("You Won!");
+        Materialize.toast("Craig Did It! Now it's Lisa's turn...", 5000);
+        this.game.state.start('Level2');
    },
    createBarrel: function() {
        var barrel = this.barrels.getFirstExists(false);
