@@ -10,7 +10,7 @@ g44Game.lisaDeathState = {
         lisaOT = this.add.sprite(game.world.centerX, game.world.centerY, 'lisaOT');
         lisaOT.anchor.setTo(0.5, 0.5);
         this.createButton2(game, "Play Again", game.world.centerX, game.world.centerY +250, 300, 100, function() {
-            this.state.start('Game');
+            this.state.start('Level2');
         })
     },
     update: function(game) {

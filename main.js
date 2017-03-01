@@ -10,5 +10,6 @@ g44Game.game.state.add('Level2', g44Game.Level2State);
 g44Game.game.state.add('About', g44Game.AboutState);
 g44Game.game.state.add('craigDeath', g44Game.craigDeathState);
 g44Game.game.state.add('lisaDeath', g44Game.lisaDeathState);
+g44Game.game.state.add('endGame', g44Game.gameEndState);
 
 g44Game.game.state.start('Boot');

@@ -24,6 +24,11 @@ g44Game.GameState = {
    },
 
    create: function () {
+            var music;
+            this.music = this.game.add.audio('mega');
+            this.music.volume = 0.4;
+
+            this.music.play();
 
        this.background = this.game.add.sprite(0, 0, 'background');
         //originally I had created seperate elements, but along the way learned of "groups"
@@ -137,6 +142,11 @@ g44Game.GameState = {
        }
        if (this.cursors.up.isDown && this.player.body.touching.down) {
            this.player.body.velocity.y = -this.JUMPING_SPEED;
+            var jump;
+            jump = this.game.add.audio('jump');
+            jump.volume = 0.2;
+
+            jump.play();
        }
        var barrel;
        this.barrels.forEach(function(element) {
@@ -151,6 +161,11 @@ g44Game.GameState = {
    function collectBeers (player, beers){
    beers.kill();
 
+        var coin;
+        coin = this.game.add.audio('coin');
+
+        coin.play();
+
     this.score += 10;
     this.scoreText.text = "score:" + this.score;
     console.log(this.score)
@@ -159,6 +174,9 @@ g44Game.GameState = {
       function hitBarrel(player, barrels) {
     if(barrels.body.touching.up) {
       barrels.kill();
+        coin = this.game.add.audio('coin');
+
+        coin.play();
         this.score += 10;
         this.scoreText.text = "score:" + this.score;
       player.body.velocity.y = -this.BOUNCING_SPEED;
@@ -172,10 +190,12 @@ g44Game.GameState = {
        var death = $("<div class='text-centered'>'OH NOES! <br> CRAIG DIED!'</div>");
        Materialize.toast(death, 5000)
        this.game.state.start('craigDeath');
+       this.music.stop();
    },
    wins: function() {
         Materialize.toast("Craig Did It! Now it's Lisa's turn...", 5000);
         this.game.state.start('Level2');
+        this.music.stop();
    },
    createBarrel: function() {
        var barrel = this.barrels.getFirstExists(false);

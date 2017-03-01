@@ -28,6 +28,12 @@ g44Game.Level2State = {
 
    create: function () {
 
+            var music2;
+            this.music2 = this.game.add.audio('dungeon');
+            this.music2.volume = 0.4;
+
+            this.music2.play();
+
        this.background = this.game.add.sprite(0, 0, 'background2');
 
          var groundData = [
@@ -138,6 +144,10 @@ g44Game.Level2State = {
        }
        if (this.cursors.up.isDown && this.player2.body.touching.down) {
            this.player2.body.velocity.y = -this.JUMPING_SPEED;
+            jump = this.game.add.audio('jump');
+            jump.volume = 0.2;
+
+            jump.play();
        }
        var barrel2;
        this.barrels2.forEach(function(element) {
@@ -152,6 +162,10 @@ g44Game.Level2State = {
    function collectBeers (player2, beers){
    beers.kill();
 
+    coin = this.game.add.audio('coin');
+
+    coin.play();
+
     this.score2 += 10;
     this.scoreText.text = "score:" + this.score2;
 
@@ -159,6 +173,9 @@ g44Game.Level2State = {
       function hitBarrel(player2, barrels2) {
     if(barrels2.body.touching.up) {
       barrels2.kill();
+        coin = this.game.add.audio('coin');
+
+        coin.play();
         this.score2 += 10;
         this.scoreText.text = "score:" + this.score2;
       player2.body.velocity.y = -this.BOUNCING_SPEED;
@@ -172,11 +189,13 @@ g44Game.Level2State = {
        var death2 = $("<div class='text-centered'>'OH NOES! <br> YOU KILLED LISA!'</div>");
        $('body').append(death2);
        Materialize.toast(death2, 5000)
+       this.music2.stop();
        this.game.state.start('lisaDeath');
    },
    wins: function() {
         Materialize.toast("LISA IS TEH BEST!", 5000);
-        this.game.state.start('MainMenu');
+        this.music2.stop();
+        this.game.state.start('endGame');
    },
    createBarrel2: function() {
        var barrel2 = this.barrels2.getFirstExists(false);

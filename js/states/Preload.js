@@ -19,7 +19,12 @@ g44Game.PreloadState = {
         this.load.image('button', 'assets/images/orange.png');
         this.load.image('craigOT', 'assets/images/craig_death.png');
         this.load.image('lisaOT', 'assets/images/lisa_death.png');
+        this.load.image('castle', 'assets/images/hyrule_castle.png');
         this.load.audio('castlevania', ['assets/images/castelvania.mp3', 'assets/images/castlevania.ogg']);
+        this.load.audio('jump', ['assets/images/Mario-jump-sound.mp3', 'assets/images/Mario-Jump-Sound.ogg']);
+        this.load.audio('dungeon', ['assets/images/22-mini-fortress.mp3', 'assets/images/mini-fortress.ogg']);
+        this.load.audio('mega', ['assets/images/17-wily-stage-1-2.mp3', 'assets/images/wily-stage.ogg']);
+        this.load.audio('end', ['assets/images/10-zeldas-wiegenlied.mp3', 'assets/images/zeldas.ogg']);
 
        this.load.spritesheet('player2', 'assets/images/lisa_walk.png', 48, 52, 4, 1, 1);
        this.load.spritesheet('fire', 'assets/images/fire_spritesheet.png', 20, 21, 5, 1, 1);
