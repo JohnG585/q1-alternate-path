@@ -77,6 +77,11 @@ g44Game.Level3State = {
        }, this);
        this.beers.setAll('body.allowGravity', false);
 
+       //pete
+       this.pete = this.add.sprite(this.levelData.pete.x, this.levelData.pete.y, 'trapped')
+       this.game.physics.arcade.enable(this.pete);
+       this.pete.body.allowGravity = false;
+
        //goal
 
        this.goal3 = this.add.sprite(this.levelData.goal3.x, this.levelData.goal3.y, 'goal3')
@@ -118,8 +123,8 @@ g44Game.Level3State = {
        this.barrelCreate = this.game.time.events.loop(Phaser.Timer.SECOND * this.levelData.fireRelease, this.createFB, this)
        this.barrelCreate2 = this.game.time.events.loop(Phaser.Timer.SECOND * this.levelData.fireRelease, this.createFB2, this)
 
-        this.score2 = 0;
-        console.log(this.score)
+        this.score3 = parseInt(localStorage.getItem('high-score'));
+        var iamnumber = parseInt(this.score3);
         this.scoreText3 = this.game.add.text(900, 20, 'score:', { fontSize: '32px', fill: '#fff' });
    },
 
@@ -132,7 +137,7 @@ g44Game.Level3State = {
        this.game.physics.arcade.collide(this.fireball, this.platforms3);
        this.game.physics.arcade.collide(this.player3, this.fireball, hitFB, null, this);
 
-       this.game.physics.arcade.overlap(this.player3, this.goal3, this.wins, null, this);
+       this.game.physics.arcade.overlap(this.player3, this.pete, this.wins, null, this);
        this.game.physics.arcade.overlap(this.player3, this.beers, collectBeers, null, this);
 
        this.game.physics.arcade.collide(this.fireball, this.crates);
@@ -187,8 +192,8 @@ g44Game.Level3State = {
 
     coin.play();
 
-    this.score2 += 10;
-    this.scoreText3.text = "score:" + this.score2;
+    this.score3 = this.score3 + 10;
+    this.scoreText3.text = "score:" + this.score3;
 
    }
       function hitFB(player3, fireball) {
@@ -203,7 +208,7 @@ g44Game.Level3State = {
        this.music3.stop();
        this.game.state.start('teddiDeath');
    },
-   wins: function() {
+   wins: function(player3, pete) {
         Materialize.toast("YOU DID IT, TEDDI!", 5000);
         this.music3.stop();
         this.game.state.start('endGame');
@@ -234,7 +239,7 @@ g44Game.Level3State = {
        fireball2.body.collideWorldBounds = true;
        fireball2.body.bounce.set(1,0);
 
-       fireball2.reset(this.levelData.char2.x, this.levelData.char2.y+20);
+       fireball2.reset(this.levelData.char2.x+20, this.levelData.char2.y+50);
        fireball2.body.velocity.x = -this.levelData.fireball;
 
    },

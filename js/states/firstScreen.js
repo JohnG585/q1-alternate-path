@@ -19,7 +19,8 @@ g44Game.firstScreenState = {
             this.intromusic.stop();
         })
         this.goButton(game, "I Don't Care About Pete!", game.world.centerX+200, game.world.centerY + 300, 320, 100, function() {
-            this.state.start('sad');
+            this.state.start('forPete');
+            this.intromusic.stop();
         })
     },
 

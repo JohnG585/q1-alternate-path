@@ -1,14 +1,23 @@
 var g44Game = g44Game || {};
 g44Game.MenuState = {
     create: function(game) {
+
+        var intromusic;
+        this.intromusic = this.game.add.audio('intro');
+        this.intromusic.volume = 0.4;
+
+        this.intromusic.play();
+
         var titleScreen;
-        titleScreen = this.add.sprite(game.world.centerX, game.world.centerY, 'titleScreen');
+        titleScreen = this.add.sprite(game.world.centerX+150, game.world.centerY, 'titleScreen');
         titleScreen.anchor.setTo(0.5, 0.5);
-        this.createButton(game, "Play Game", game.world.centerX, game.world.centerY + 20, 300, 100, function() {
+        this.createButton(game, "Play Game", game.world.centerX-350, game.world.centerY + 150, 300, 100, function() {
             this.state.start('firstScreen');
+            this.intromusic.stop();
         })
-        this.createButton(game, "How To Play", game.world.centerX, game.world.centerY +150, 300, 100, function() {
+        this.createButton(game, "How To Play", game.world.centerX-350, game.world.centerY +275, 300, 100, function() {
             this.state.start('About');
+            this.intromusic.stop();
         })
     },
 

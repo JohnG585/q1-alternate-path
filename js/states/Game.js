@@ -195,6 +195,7 @@ g44Game.GameState = {
    wins: function() {
         Materialize.toast("Craig Did It! Now it's Lisa's turn...", 5000);
         this.game.state.start('Level2');
+        localStorage.setItem('high-score', this.score)
         this.music.stop();
    },
    createBarrel: function() {

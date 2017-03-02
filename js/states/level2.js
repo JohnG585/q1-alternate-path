@@ -109,8 +109,8 @@ g44Game.Level2State = {
        this.createBarrel2();
        this.barrelCreate = this.game.time.events.loop(Phaser.Timer.SECOND * this.levelData.barrelRelease2, this.createBarrel2, this)
 
-        this.score2 = 0;
-        console.log(this.score)
+        this.score2 = localStorage.getItem('high-score');
+        console.log('when i am defined ', this.score2)
         this.scoreText = this.game.add.text(900, 50, 'score:', { fontSize: '32px', fill: '#fff' });
    },
 
@@ -167,7 +167,8 @@ g44Game.Level2State = {
 
     coin.play();
 
-    this.score2 += 10;
+    this.score2 = JSON.parse(this.score2) + 10;
+    console.log('when i increase ', this.score2);
     this.scoreText.text = "score:" + this.score2;
 
    }
@@ -177,7 +178,8 @@ g44Game.Level2State = {
         coin = this.game.add.audio('coin');
 
         coin.play();
-        this.score2 += 10;
+        this.score2 = this.score2 + 10;
+        console.log(this.score2);
         this.scoreText.text = "score:" + this.score2;
       player2.body.velocity.y = -this.BOUNCING_SPEED;
     }
@@ -196,6 +198,7 @@ g44Game.Level2State = {
    wins: function() {
         Materialize.toast("LISA IS TEH BEST! <br> Your turn, Teddi!", 5000);
         this.music2.stop();
+        localStorage.setItem('high-score', this.score2)
         this.game.state.start('Level3');
    },
    createBarrel2: function() {

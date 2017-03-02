@@ -119,5 +119,6 @@
     "goal3": {"x":185, "y":48},
     "fireball": 350,
     "char2": {"x":950, "y":55},
-    "fireRelease": 4
+    "fireRelease": 4,
+    "pete":{"x":560, "y":0}
 }

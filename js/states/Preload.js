@@ -15,7 +15,7 @@ g44Game.PreloadState = {
         this.load.image('beer', 'assets/images/beermug.png');
         this.load.image('background2', 'assets/images/black_background.png');
         this.load.audio('coin', ['assets/images/coin.mp3', 'assets/images/coin.ogg']);
-        this.load.image('titleScreen', 'assets/images/walnut_title.png');
+        this.load.image('titleScreen', 'assets/images/mmtitle.png');
         this.load.image('button', 'assets/images/orange.png');
         this.load.image('craigOT', 'assets/images/craig_death.png');
         this.load.image('lisaOT', 'assets/images/lisa_death.png');
@@ -26,6 +26,8 @@ g44Game.PreloadState = {
         this.load.image('goal3', 'assets/images/charizard.png');
         this.load.image('char2', 'assets/images/blue_char.png');
         this.load.image('crate', 'assets/images/crate.png');
+        this.load.image('peteImage', 'assets/images/pete.png');
+        this.load.image('trapped', 'assets/images/cartoon-cage.png');
 
         this.load.audio('intro', ['assets/images/01-intro.mp3', 'assets/images/01-intro.ogg']);
         this.load.audio('castlevania', ['assets/images/castelvania.mp3', 'assets/images/castlevania.ogg']);
