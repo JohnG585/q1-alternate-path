@@ -20,15 +20,25 @@ g44Game.PreloadState = {
         this.load.image('craigOT', 'assets/images/craig_death.png');
         this.load.image('lisaOT', 'assets/images/lisa_death.png');
         this.load.image('castle', 'assets/images/hyrule_castle.png');
+        this.load.image('aboutScreen', 'assets/images/wallup-76393.jpg');
+        this.load.image('final', 'assets/images/castle2.png');
+        this.load.image('teddiOT', 'assets/images/teddi_death.png');
+        this.load.image('goal3', 'assets/images/charizard.png');
+        this.load.image('char2', 'assets/images/blue_char.png');
+        this.load.image('crate', 'assets/images/crate.png');
+
+        this.load.audio('intro', ['assets/images/01-intro.mp3', 'assets/images/01-intro.ogg']);
         this.load.audio('castlevania', ['assets/images/castelvania.mp3', 'assets/images/castlevania.ogg']);
         this.load.audio('jump', ['assets/images/Mario-jump-sound.mp3', 'assets/images/Mario-Jump-Sound.ogg']);
         this.load.audio('dungeon', ['assets/images/22-mini-fortress.mp3', 'assets/images/mini-fortress.ogg']);
         this.load.audio('mega', ['assets/images/17-wily-stage-1-2.mp3', 'assets/images/wily-stage.ogg']);
+        this.load.audio('final', ['assets/images/22-trainer-battle-theme-1.mp3', 'assets/images/trainer-battle-theme.ogg']);
         this.load.audio('end', ['assets/images/10-zeldas-wiegenlied.mp3', 'assets/images/zeldas.ogg']);
 
-       this.load.spritesheet('player2', 'assets/images/lisa_walk.png', 48, 52, 4, 1, 1);
+       this.load.spritesheet('player2', 'assets/images/lisa_walk.png', 49, 53, 4, 1, 1);
        this.load.spritesheet('fire', 'assets/images/fire_spritesheet.png', 20, 21, 5, 1, 1);
        this.load.spritesheet('player', 'assets/images/craig_walk.png', 52, 57, 5, 1, 1);
+       this.load.spritesheet('player3', 'assets/images/teddi_walking.png', 47, 55, 4, 1, 1);
 
     },
     create: function() {

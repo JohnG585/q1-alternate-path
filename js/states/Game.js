@@ -24,9 +24,9 @@ g44Game.GameState = {
    },
 
    create: function () {
+        localStorage.setItem("high-score", JSON.stringify(this.score));
             var music;
-            this.music = this.game.add.audio('mega');
-            this.music.volume = 0.4;
+            this.music = this.game.add.audio('mega', 0.3);
 
             this.music.play();
 
@@ -108,11 +108,11 @@ g44Game.GameState = {
        this.barrelCreate = this.game.time.events.loop(Phaser.Timer.SECOND * this.levelData.barrelRelease, this.createBarrel, this)
 
         this.score = 0;
-        this.scoreText = this.game.add.text(500, 50, 'score:', { fontSize: '32px', fill: '#000' });
+        this.scoreText = this.game.add.text(900, 50, 'score:', { fontSize: '32px', fill: '#000' });
    },
 
    update: function () {
-
+       this.score;
        this.game.physics.arcade.collide(this.player, this.grounds);
        this.game.physics.arcade.collide(this.player, this.platforms);
 

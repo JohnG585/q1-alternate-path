@@ -4,21 +4,21 @@ g44Game.Level2State = {
 
    init: function() {
 
-       this.game.physics.arcade.gravity.y = 1000;
+      this.game.physics.arcade.gravity.y = 1000;
 
-       this.cursors = this.game.input.keyboard.createCursorKeys();
+      this.cursors = this.game.input.keyboard.createCursorKeys();
 
-       this.game.world.setBounds(0, 0, 1100, 700)
+      this.game.world.setBounds(0, 0, 1100, 700)
 
        this.RUN2_SPEED = 250;
-       this.JUMPING_SPEED = 560;
+       this.JUMPING2_SPEED = 560;
        this.BOUNCING_SPEED = 150;
 
    },
 
    preload: function () {
 
-       this.load.spritesheet('player2', 'assets/images/lisa_walk.png', 48, 52, 4, 1, 1);
+       this.load.spritesheet('player2', 'assets/images/lisa_walk.png', 49, 52, 4, 1, 1);
        this.load.image('barrel2', 'assets/images/barrel.png');
        this.load.image('goal2', 'assets/images/dk.png');
        //load json
@@ -110,7 +110,8 @@ g44Game.Level2State = {
        this.barrelCreate = this.game.time.events.loop(Phaser.Timer.SECOND * this.levelData.barrelRelease2, this.createBarrel2, this)
 
         this.score2 = 0;
-        this.scoreText = this.game.add.text(500, 50, 'score:', { fontSize: '32px', fill: '#fff' });
+        console.log(this.score)
+        this.scoreText = this.game.add.text(900, 50, 'score:', { fontSize: '32px', fill: '#fff' });
    },
 
    update: function () {
@@ -143,7 +144,7 @@ g44Game.Level2State = {
            this.player2.frame = 0;
        }
        if (this.cursors.up.isDown && this.player2.body.touching.down) {
-           this.player2.body.velocity.y = -this.JUMPING_SPEED;
+           this.player2.body.velocity.y = -this.JUMPING2_SPEED;
             jump = this.game.add.audio('jump');
             jump.volume = 0.2;
 
@@ -193,9 +194,9 @@ g44Game.Level2State = {
        this.game.state.start('lisaDeath');
    },
    wins: function() {
-        Materialize.toast("LISA IS TEH BEST!", 5000);
+        Materialize.toast("LISA IS TEH BEST! <br> Your turn, Teddi!", 5000);
         this.music2.stop();
-        this.game.state.start('endGame');
+        this.game.state.start('Level3');
    },
    createBarrel2: function() {
        var barrel2 = this.barrels2.getFirstExists(false);

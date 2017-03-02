@@ -1,10 +1,4 @@
-.score {
-text-align: center;
-font-family: 'VT323', monospace;
-font-size: 40px;
-font-weight: bold;
-color: black;
-}
-.button2 {
+
+body {
 font-family: 'VT323', monospace;
 }

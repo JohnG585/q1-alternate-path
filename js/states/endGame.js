@@ -6,11 +6,17 @@ g44Game.gameEndState = {
             this.musicEnd.volume = 0.8;
 
             this.musicEnd.play();
+         this.endText = this.game.add.text(150, 150, 'The team has found Pete!',
+        { font: 'VT323', fontSize:'60px', fill: '#000'});
+        this.endText = this.game.add.text(150, 150, 'He says he wishes he was in',
+        { font: 'VT323', fontSize:'60px', fill: '#000'});
+        this.endText = this.game.add.text(150, 150, 'a better game.',
+        { font: 'VT323', fontSize:'60px', fill: '#000'});
 
         var endScreen;
         endScreen = this.add.sprite(game.world.centerX, game.world.centerY, 'castle');
         endScreen.anchor.setTo(0.5, 0.5);
-        this.createButton(game, "Main Menu", game.world.centerX, game.world.centerY +150, 300, 100, function() {
+        this.createButton(game, "Main Menu", game.world.centerX, game.world.centerY +250, 300, 100, function() {
             this.state.start('MainMenu');
             this.musicEnd.stop();
         })

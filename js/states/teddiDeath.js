@@ -1,15 +1,16 @@
 var g44Game = g44Game || {};
-g44Game.craigDeathState = {
+g44Game.teddiDeathState = {
     create: function(game) {
         var music;
         music = game.add.audio('castlevania');
 
         music.play();
-        var craigOT;
-        craigOT = this.add.sprite(game.world.centerX, game.world.centerY, 'craigOT');
-        craigOT.anchor.setTo(0.5, 0.5);
+
+        var lisaOT;
+        lisaOT = this.add.sprite(game.world.centerX, game.world.centerY, 'teddiOT');
+        lisaOT.anchor.setTo(0.5, 0.5);
         this.createButton2(game, "Play Again", game.world.centerX, game.world.centerY +250, 300, 100, function() {
-            this.state.start('Game');
+            this.state.start('Level3');
         })
     },
     update: function(game) {
@@ -22,6 +23,7 @@ g44Game.craigDeathState = {
         button1.height = h;
 
         var txt = game.add.text(button1.x, button1.y, string);
+        // txt.addClass('button2');
 
         txt.anchor.setTo(0.5, 0.5);
 

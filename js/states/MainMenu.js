@@ -5,15 +5,13 @@ g44Game.MenuState = {
         titleScreen = this.add.sprite(game.world.centerX, game.world.centerY, 'titleScreen');
         titleScreen.anchor.setTo(0.5, 0.5);
         this.createButton(game, "Play Game", game.world.centerX, game.world.centerY + 20, 300, 100, function() {
-            this.state.start('Game');
+            this.state.start('firstScreen');
         })
-        this.createButton(game, "About", game.world.centerX, game.world.centerY +150, 300, 100, function() {
+        this.createButton(game, "How To Play", game.world.centerX, game.world.centerY +150, 300, 100, function() {
             this.state.start('About');
         })
     },
-    update: function(game) {
 
-    },
     createButton: function(game, string,x,y,w,h,callback) {
         var button1 = game.add.button(x,y,'button', callback, this, 2,1,0);
         button1.anchor.setTo(0.5,0.5);
