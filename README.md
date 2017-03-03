@@ -10,13 +10,13 @@ so that I have several tattoos of classic video game characters.
 
 ##The most challenging parts of the game include:
 
- ###- Making the “sprites” 	
+### - Making the “sprites” 	
     Sprites are the movable and immovable objects in the game itself, such as the characters, 
     the platforms, and villains. I created every element you see in the game, outside of the background images (found 
     on Google Images), stationary fires and platforms (taken from Phaser’s demo page). Using Preview, GIMP, and Sketch, 
     I crafted each character, boss, and obstacle, as well as positioning each sprite throughout each individual level. 
 
- ###- Learning Phaser 	
+### - Learning Phaser 	
     Phaser utilizes JS, however it also has it’s own programming language. When I started the 
     program it seemed rather daunting, however after a while it became pretty simple. Once I got over the original hurdle of 
     learning what certain commands do, the rest of the project fell in line. 
